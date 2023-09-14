@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://yc7x8jj4njyt"]
+[gd_scene load_steps=7 format=3 uid="uid://yc7x8jj4njyt"]
 
 [ext_resource type="Texture2D" uid="uid://b76yv3mnc2dh5" path="res://tile.png" id="1_2u240"]
+[ext_resource type="Script" path="res://world.gd" id="1_dlswd"]
 [ext_resource type="PackedScene" uid="uid://cu65jrn7qp66b" path="res://player.tscn" id="2_rvd2m"]
 [ext_resource type="PackedScene" uid="uid://ccr0q3rtc03hl" path="res://enemy.tscn" id="3_llqci"]
 
@@ -15,6 +16,7 @@ uv1_offset = Vector3(0, 0, 0.5)
 uv1_triplanar = true
 
 [node name="World" type="Node3D"]
+script = ExtResource("1_dlswd")
 
 [node name="Walls" type="Node3D" parent="."]
 
