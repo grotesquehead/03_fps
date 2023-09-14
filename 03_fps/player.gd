@@ -17,6 +17,7 @@ func _input(event):
 		camera.rotation.x = clamp(camera.rotation.x,deg_to_rad(-90),deg_to_rad(90))
 
 
+
 func _physics_process(delta):
 	var input_direction = get_input_direction()
 	var move_direction = (transform.basis * Vector3(input_direction.x, 0, input_direction.z)).normalized()
@@ -32,6 +33,9 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_released("shoot") and !animation_player.is_playing():
 		animation_player.play("shoot")
+		var enemy_collider = $Camera3D/RayCast3D.get_collider()
+		if enemy_collider != null and enemy_collider.name == "Enemy":
+			enemy_collider.queue_free()
 	move_and_slide()
 
 
