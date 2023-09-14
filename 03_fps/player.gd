@@ -8,7 +8,7 @@ const GRAVITY = 50.0
 var mouse_sensitivity = 0.5
 
 @onready var camera: Camera3D = $Camera3D
-
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 func _input(event):
     if event is InputEventMouseMotion:
@@ -30,6 +30,8 @@ func _physics_process(delta):
     else:
         velocity.y -= GRAVITY * delta
     
+    if Input.is_action_just_released("shoot") and !animation_player.is_playing():
+        animation_player.play("shoot")
     move_and_slide()
 
 
